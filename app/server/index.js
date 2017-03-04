@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.use(express.static(path.join(__dirname + '/../client')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 mongoose.Promise = Promise;
 mongoose.set('debug', true);
@@ -23,6 +23,11 @@ mongoose.connection.once('open', () => {
 	console.log('Mongoose connection successful');
 });
 
+//  Add our routes
+require('./routes/get/todos')(app);
+require('./routes/post/todo')(app);
+require('./routes/put/todo')(app);
+require('./routes/get/default')(app);
 
 app.listen(PORT, () => {
 	console.log('listening on port:', PORT);
