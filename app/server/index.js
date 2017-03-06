@@ -27,6 +27,8 @@ mongoose.connection.once('open', () => {
 require('./routes/get/todos')(app);
 require('./routes/post/todo')(app);
 require('./routes/put/todo')(app);
+require('./routes/delete/todo')(app);
+require('./routes/delete/clear')(app);
 require('./routes/get/default')(app);
 
 app.listen(PORT, () => {

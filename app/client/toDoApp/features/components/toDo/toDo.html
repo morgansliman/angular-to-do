@@ -1,1 +1,15 @@
-todo
+<md-card layout="column">
+	<img src="https://unsplash.it/1000/150/?random" class="md-card-image" alt="To-do Image">
+	<div layout="row">
+		<md-card-actions layout="column" layout-align="center center">
+			<md-checkbox ng-model="ToDoVM.content.completed"></md-checkbox>
+		</md-card-actions>
+		<div layout="column" layout-align="center start">
+			<md-card-content>
+				<span class="md-headline">{{ToDoVM.content.todo}}</span>
+				<br>
+				<span class="md-subhead">{{ToDoVM.content.completeBy | date : 'fullDate'}}</span>
+			</md-card-content>
+		</div>
+	</div>
+</md-card>

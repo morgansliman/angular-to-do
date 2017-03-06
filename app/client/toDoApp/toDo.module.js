@@ -4,6 +4,8 @@ angular
 		// Global dependencies
 		'ui.router',
 		'ngMaterial',
+		'ngAria',
+		'ngMdIcons',
 
 		// Features
 		'toDoApp.create',
@@ -12,7 +14,16 @@ angular
 	])
 	.config(appConfig);
 
-function appConfig($urlRouterProvider) {
-	//	Redirect unknown routes to /
-	$urlRouterProvider.otherwise('/');
+function appConfig($urlRouterProvider, $mdThemingProvider) {
+	//	Redirect unknown routes to /list
+	$urlRouterProvider.otherwise('/list');
+
+	$mdThemingProvider
+		.theme('default')
+		.primaryPalette('blue-grey', {
+			'default': '500'
+		})
+		.accentPalette('red', {
+			'default': '500'
+		});
 }

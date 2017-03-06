@@ -8,8 +8,9 @@ module.exports = (app) => {
 			//	retrieve all ToDos from mongodb
 			ToDo
 				.find({})
+				.sort('completeBy')
 				.exec()
-				.then(data => res.json(data));
+				.then(data => res.send(data));
 		}
 	);
 };

@@ -1,3 +1,3 @@
-completed
-
-<to-do></to-do>
+<md-content layout="column" layout-align="start center">
+	<to-do ng-repeat="todo in CompletedVM.todos" ng-if="todo.completed" content="todo"></to-do>
+</md-content>

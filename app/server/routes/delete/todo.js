@@ -2,24 +2,21 @@ const ToDo = require('../../models/ToDo');
 
 module.exports = (app) => {
 
-	app.put('/api/todo',
+	app.delete('/api/todo',
 		(req, res) => {
 
-			//	update the requested to-do object in our db
-			ToDo.update(
+			//	delete the requested to-do object in our db
+			ToDo.remove(
 				{
 					_id: req.body.id
 				},
-				{
-					$set: req.body
-				},
-				(err, todo) => {
+				(err) => {
 					if (err) {
 						console.log(err);
 						return res.status(500)
 						          .end();
 					}
-					console.log('Updated toDo:', todo);
+					console.log('Deleted toDo:', req.body);
 					res.end();
 				}
 			);

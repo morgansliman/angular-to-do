@@ -32,8 +32,23 @@
 </head>
 <body ng-app="toDoApp">
 
+	<!-- Material Design Nav Bar -->
+	<md-content md-whiteframe="3">
+		<md-tabs class="md-primary">
+			<md-tab id="tab1" ui-sref="list">
+				<md-tab-label>List</md-tab-label>
+			</md-tab>
+			<md-tab id="tab2" ui-sref="create">
+				<md-tab-label>Create</md-tab-label>
+			</md-tab>
+			<md-tab id="tab3" ui-sref="completed">
+				<md-tab-label>Completed</md-tab-label>
+			</md-tab>
+		</md-tabs>
+	</md-content>
+
 	<!-- View injected here-->
-	<ui-view></ui-view>
+	<ui-view class="md-padding"></ui-view>
 
 	<!-- Angular toDoApp -->
 	<script src="toDoApp/toDo.module.js"></script>
@@ -46,7 +61,9 @@
 	<script src="toDoApp/features/list/list.module.js"></script>
 	<script src="toDoApp/features/list/list.controller.js"></script>
 	<script src="toDoApp/features/list/list.route.js"></script>
-	<script src="toDoApp/features/components/todo/toDo.module.js"></script>
-	<script src="toDoApp/features/components/todo/toDo.directive.js"></script>
+	<script src="toDoApp/features/components/toDo/toDo.module.js"></script>
+	<script src="toDoApp/features/components/toDo/toDo.directive.js"></script>
+	<script src="toDoApp/features/components/api/api.module.js"></script>
+	<script src="toDoApp/features/components/api/api.service.js"></script>
 </body>
 </html>

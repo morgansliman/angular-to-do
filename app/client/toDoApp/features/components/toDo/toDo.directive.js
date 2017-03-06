@@ -6,9 +6,9 @@ function ToDo() {
 	return {
 		restrict:         'E',
 		scope:            {
-			toDoData: '='
+			content: '='
 		},
-		templateUrl:      '/toDoApp/features/components/todo/toDo.html',
+		templateUrl:      '/toDoApp/features/components/toDo/toDo.html',
 		controller:       ToDoCtrl,
 		controllerAs:     'ToDoVM',
 		bindToController: true
@@ -16,5 +16,7 @@ function ToDo() {
 }
 
 function ToDoCtrl() {
-	
+	var vm = this;
+
+
 }
