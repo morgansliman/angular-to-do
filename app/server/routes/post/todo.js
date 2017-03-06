@@ -2,7 +2,7 @@ const ToDo = require('../../models/ToDo');
 
 module.exports = (app) => {
 
-	app.post('/api/todo',
+	app.post('/api/toDo',
 		(req, res) => {
 
 			//	create a new to-do object in our db
@@ -17,7 +17,7 @@ module.exports = (app) => {
 						return res.status(500)
 						          .end();
 					}
-					console.log('New todo:', todo);
+					console.log('New toDo:', todo);
 				}
 			);
 		}

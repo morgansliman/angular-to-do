@@ -2,7 +2,7 @@ const ToDo = require('../../models/ToDo');
 
 module.exports = (app) => {
 
-	app.put('/api/todo',
+	app.put('/api/toDo',
 		(req, res) => {
 
 			//	update the requested to-do object in our db
@@ -13,7 +13,8 @@ module.exports = (app) => {
 				{
 					$set: {
 						todo:       req.body.todo,
-						completeBy: req.body.completeBy
+						completeBy: req.body.completeBy,
+						completed:  req.body.completed
 					}
 				},
 				(err, todo) => {
@@ -22,7 +23,7 @@ module.exports = (app) => {
 						return res.status(500)
 						          .end();
 					}
-					console.log('New todo:', todo);
+					console.log('New toDo:', todo);
 				}
 			);
 		}
