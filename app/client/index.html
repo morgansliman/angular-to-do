@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<base href="/" />
-	<meta charset="utf-8">
 	<title>AngularJS - To-do App</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-	<meta name="fragment" content="!">
 
 	<!-- Roboto Font for Angular-Material -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 
-	<!-- Custom Stylesheet -->
-	<link rel="stylesheet" type="text/css" href="toDoApp/layout/assets/styles/layout.css">
-
 	<!-- Angular-Material Stylesheet-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.3/angular-material.min.css">
+
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="toDoApp/layout/assets/styles/layout.css">
 
 	<!-- Angular & UI-Router -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
@@ -30,31 +24,42 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-messages.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.3/angular-material.min.js"></script>
 </head>
-<body ng-app="toDoApp">
+<body ng-app="toDoApp" layout ng-cloak class="view">
 
 	<!-- Material Design Nav Bar -->
-	<md-content md-whiteframe="3">
-		<md-tabs class="md-primary">
-			<md-tab id="tab1" ui-sref="list">
-				<md-tab-label>List</md-tab-label>
-			</md-tab>
-			<md-tab id="tab2" ui-sref="create">
-				<md-tab-label>Create</md-tab-label>
-			</md-tab>
-			<md-tab id="tab3" ui-sref="completed">
-				<md-tab-label>Completed</md-tab-label>
-			</md-tab>
-		</md-tabs>
+	<md-content flex layout="column">
+		<md-toolbar layout="row" layout-align="center center" layout-padding>
+			<span class="app-name">Your To-do's</span>
+			<span class="app-context" flex></span>
+			<md-button
+					class="md-raised md-accent"
+					aria-label="Clear Completed To-do's"
+					ng-hide="'list' | isState"
+					ng-click="clear()">
+				Clear Completed
+			</md-button>
+		</md-toolbar>
+		<md-subheader md-whiteframe="1">
+			<md-tabs md-stretch-tabs="always" md-bottom-border>
+				<md-tab ui-sref="list">
+					Active
+				</md-tab>
+				<md-tab ui-sref="completed">
+					Completed
+				</md-tab>
+			</md-tabs>
+		</md-subheader>
+		<section flex class="content" ui-view>
+
+			<!-- ui-router content here -->
+
+		</section>
 	</md-content>
 
-	<!-- View injected here-->
-	<ui-view class="md-padding"></ui-view>
+	<!-- Reminder: layout-* directives on parent elements; flex-* directives on child elements -->
 
 	<!-- Angular toDoApp -->
 	<script src="toDoApp/toDo.module.js"></script>
-	<script src="toDoApp/features/create/create.module.js"></script>
-	<script src="toDoApp/features/create/create.controller.js"></script>
-	<script src="toDoApp/features/create/create.route.js"></script>
 	<script src="toDoApp/features/completed/completed.module.js"></script>
 	<script src="toDoApp/features/completed/completed.controller.js"></script>
 	<script src="toDoApp/features/completed/completed.route.js"></script>
@@ -65,5 +70,7 @@
 	<script src="toDoApp/features/components/toDo/toDo.directive.js"></script>
 	<script src="toDoApp/features/components/api/api.module.js"></script>
 	<script src="toDoApp/features/components/api/api.service.js"></script>
+	<script src="toDoApp/features/components/dialog/dialog.module.js"></script>
+	<script src="toDoApp/features/components/dialog/dialog.directive.js"></script>
 </body>
 </html>

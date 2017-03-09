@@ -4,11 +4,12 @@ module.exports = (app) => {
 
 	app.delete('/api/todo',
 		(req, res) => {
+		var body = JSON.parse(req.body);
 
 			//	delete the requested to-do object in our db
 			ToDo.remove(
 				{
-					_id: req.body.id
+					_id: body._id
 				},
 				(err) => {
 					if (err) {

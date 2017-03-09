@@ -8,7 +8,7 @@ module.exports = (app) => {
 			//	update the requested to-do object in our db
 			ToDo.update(
 				{
-					_id: req.body.id
+					_id: req.body._id
 				},
 				{
 					$set: req.body

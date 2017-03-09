@@ -5,10 +5,10 @@ angular
 		'ui.router',
 		'ngMaterial',
 		'ngAria',
+		'ngMessages',
 		'ngMdIcons',
 
 		// Features
-		'toDoApp.create',
 		'toDoApp.list',
 		'toDoApp.completed'
 	])
@@ -18,12 +18,18 @@ function appConfig($urlRouterProvider, $mdThemingProvider) {
 	//	Redirect unknown routes to /list
 	$urlRouterProvider.otherwise('/list');
 
-	$mdThemingProvider
-		.theme('default')
-		.primaryPalette('blue-grey', {
-			'default': '500'
-		})
-		.accentPalette('red', {
-			'default': '500'
-		});
+	var customBlueMap = 		$mdThemingProvider.extendPalette('light-blue', {
+		'contrastDefaultColor': 'light',
+		'contrastDarkColors': ['50'],
+		'50': 'ffffff'
+	});
+	$mdThemingProvider.definePalette('customBlue', customBlueMap);
+	$mdThemingProvider.theme('default')
+	                  .primaryPalette('customBlue', {
+		                  'default': '500',
+		                  'hue-1': '50'
+	                  })
+	                  .accentPalette('pink');
+	$mdThemingProvider.theme('input', 'default')
+	                  .primaryPalette('grey')
 }

@@ -1,3 +1,11 @@
-<md-content layout="column" layout-align="start center">
-	<to-do ng-repeat="todo in ListVM.todos" content="todo"></to-do>
+<md-button
+		class="md-fab"
+		aria-label="Add"
+		ng-click="ListVM.showAdd($event)"
+		style="position: fixed; bottom: 1rem; right: 1rem;">
+	<ng-md-icon icon="add"></ng-md-icon>
+</md-button>
+
+<md-content flex>
+	<to-do ng-repeat="todo in ListVM.todos | orderBy: 'todo.completeBy'" ng-if="!todo.completed" content="todo"></to-do>
 </md-content>

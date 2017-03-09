@@ -1,2 +1,4 @@
 angular
-	.module('toDoApp.component.toDo', []);
+	.module('toDoApp.component.toDo', [
+		'toDoApp.component.api'
+	]);

@@ -1,0 +1,56 @@
+.view {
+    height: 100vh;
+}
+
+.md-subheader {
+    padding: 0 !important;
+}
+
+.md-subheader .md-subheader-inner {
+    padding: 0 !important;
+}
+
+.md-fab {
+    fill: #fff;
+}
+
+ng-md-icon {
+    position: relative;
+    top: 6px; /*adjust for svg viewbox*/
+}
+
+header {
+    border-bottom: 1px solid #222;
+    box-shadow: 0 1px 3px black, 0 1px 2px black; }
+header .user-name, header .app-name {
+    padding-bottom: 7px; }
+header .app-name {
+    padding-left: 1em;
+    font-size: 1.1em; }
+
+.content {
+    padding: 2em; }
+
+.ng-hide:not(.ng-hide-animate) {
+    /* These are just alternative ways of hiding an element */
+    visibility: hidden !important;
+    display: inherit !important;
+}
+
+md-checkbox .md-container,
+md-checkbox .md-label {
+    margin-left: 0;
+    margin-top: 1rem;
+}
+
+
+
+
+md-tabs.md-default-theme .md-tab.md-active,
+md-tabs .md-tab.md-active,
+md-tabs.md-default-theme .md-tab.md-active md-icon,
+md-tabs.md-default-theme .md-tab.md-focused,
+md-tabs .md-tab.md-focused {
+    font-weight: bold; }
+
+/*# sourceMappingURL=sasstest.css.map */

@@ -15,8 +15,17 @@ function ToDo() {
 	};
 }
 
-function ToDoCtrl() {
+function ToDoCtrl(api) {
 	var vm = this;
 
+	vm.delete = function (todo) {
+		console.log('Deleting todo:', todo);
+		api.deleteTodo(todo);
+	};
 
+	vm.update = function (todo) {
+		todo.completed = !todo.completed;
+		console.log('Updating todo:', todo);
+		api.updateTodo(todo);
+	}
 }

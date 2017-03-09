@@ -1,0 +1,31 @@
+<md-dialog-content class="md-padding">
+	<form name="todoForm">
+		<div layout layout-sm="column">
+			<md-input-container flex="auto">
+				<label>What do you need to do?</label>
+				<input name="todo"
+				       type="text"
+				       ng-model="DialogVM.todo.todo"
+				       required>
+				<div ng-messages="todoForm.todo.$error">
+					<div ng-message="required">To-do is required!</div>
+				</div>
+			</md-input-container>
+			<md-input-container flex="noshrink">
+				<label>Deadline:</label>
+				<md-datepicker name="completeBy"
+				               md-min-date="DialogVM.minDate"
+				               ng-model="DialogVM.todo.completeBy"
+				               placeholder="{{DialogVM.minDate}}"
+				               required></md-datepicker>
+				<div ng-messages="todoForm.completeBy.$error">
+					<div ng-message="required">Deadline is required!</div>
+				</div>
+			</md-input-container>
+		</div>
+	</form>
+</md-dialog-content>
+<div class="md-dialog-actions" layout="row"><span flex></span>
+	<md-button ng-click="DialogVM.cancel()">Cancel</md-button>
+	<md-button ng-click="DialogVM.submit()" class="md-primary">Save</md-button>
+</div>

@@ -1,13 +1,16 @@
 <md-card layout="column">
-	<img src="https://unsplash.it/1000/150/?random" class="md-card-image" alt="To-do Image">
-	<div layout="row">
+	<!--<img src="https://unsplash.it/1000/150/?random" class="md-card-image" alt="To-do Image">-->
+	<div layout="row" class="md-padding">
 		<md-card-actions layout="column" layout-align="center center">
-			<md-checkbox ng-model="ToDoVM.content.completed"></md-checkbox>
+			<md-checkbox ng-model="ToDoVM.content.completed" ng-click="ToDoVM.update(ToDoVM.content)" aria-label="Complete To-do"></md-checkbox>
+			<md-button class="md-icon-button" aria-label="Delete To-do" ng-click="ToDoVM.delete(ToDoVM.content)">
+				<ng-md-icon icon="delete"></ng-md-icon>
+			</md-button>
 		</md-card-actions>
 		<div layout="column" layout-align="center start">
 			<md-card-content>
 				<span class="md-headline">{{ToDoVM.content.todo}}</span>
-				<br>
+				<hr>
 				<span class="md-subhead">{{ToDoVM.content.completeBy | date : 'fullDate'}}</span>
 			</md-card-content>
 		</div>

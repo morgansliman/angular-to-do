@@ -32,13 +32,6 @@ function ApiService($http) {
 	}
 
 	function updateTodo(todo) {
-		// update locally first
-		angular.forEach(handler.todos, function (val, i) {
-			if (angular.equals(val.id, todo.id)) {
-				handler.todos[i] = todo;
-			}
-		});
-
 		$http(
 			{
 				method: 'PUT',
@@ -82,8 +75,7 @@ function ApiService($http) {
 		$http(
 			{
 				method: 'DELETE',
-				url:    'http://localhost:8000/api/clear',
-				data: todo
+				url:    'http://localhost:8000/api/clear'
 			}
 		)
 			.then(function () {
