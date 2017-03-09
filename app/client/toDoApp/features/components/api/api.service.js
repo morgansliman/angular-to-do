@@ -8,7 +8,7 @@ function ApiService($http) {
 		$http(
 			{
 				method: 'GET',
-				url:    'http://localhost:8000/api/todos'
+				url:    '/api/todos'
 			}
 		)
 			.then(function (response) {
@@ -22,7 +22,7 @@ function ApiService($http) {
 		$http(
 			{
 				method: 'POST',
-				url:    'http://localhost:8000/api/todo',
+				url:    '/api/todo',
 				data: todo
 			}
 		)
@@ -35,7 +35,7 @@ function ApiService($http) {
 		$http(
 			{
 				method: 'PUT',
-				url:    'http://localhost:8000/api/todo',
+				url:    '/api/todo',
 				data: todo
 			}
 		)
@@ -55,7 +55,7 @@ function ApiService($http) {
 		$http(
 			{
 				method: 'DELETE',
-				url:    'http://localhost:8000/api/todo',
+				url:    '/api/todo',
 				data: todo
 			}
 		)
@@ -75,7 +75,7 @@ function ApiService($http) {
 		$http(
 			{
 				method: 'DELETE',
-				url:    'http://localhost:8000/api/clear'
+				url:    '/api/clear'
 			}
 		)
 			.then(function () {

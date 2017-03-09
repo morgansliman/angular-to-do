@@ -18,7 +18,10 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 mongoose.Promise = Promise;
 mongoose.set('debug', true);
-mongoose.connect('mongodb://localhost:27017/angularToDo');
+mongoose.connect('mongodb://mongo1.gear.host:27001/angulartodo', {
+	user: process.env.USER,
+	pass: process.env.PASS
+});
 mongoose.connection.once('open', () => {
 	console.log('Mongoose connection successful');
 });
